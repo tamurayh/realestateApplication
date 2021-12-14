@@ -1,0 +1,373 @@
+@charset "UTF-8";
+
+html{
+	
+  height: 100%;
+  width : 100%;
+  margin: 0 auto;
+  
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  font-size: 100%;
+  position: static;
+}
+
+header {
+	
+	height: 100vh;
+	width : 100%;
+	
+}
+
+.headertop a{
+	color: #fff; 
+ }
+ 
+ ul.logo{
+   margin: 0px;               /* メニューバー外側の余白(ゼロ) */
+   padding: 0px 0px 0px 15px; /* メニューバー内側の余白(左に15px) */
+   background-color:rgba( 0,0,0,0); /* バーの背景色(透明化) */
+   position: fixed; /* 要素の位置を固定する */
+   top: 1.5%; /* 基準の置を画面の一番上に指定する */
+   left: 2%; /* 基準の位置を画面の一番左に指定する */
+   margin: 0; /* 要素の余白を０にする */
+   padding: 10px; /* 要素内側の余白を指定する */
+   height:40px; /* 高さを指定する */
+   width: 50%; /* 幅を指定する */
+   color:white; /* フォントの色を指定する */
+ }
+ 
+ ul.logo li {
+   width: 25%;           /* メニュー項目の横幅(125px) */
+   display: inline-block;  /* ★1:横並びに配置する */
+   list-style-type: none;  /* ★2:リストの先頭記号を消す */
+   position: relative;    /* ★3:サブメニュー表示の基準位置にする */
+}
+ ul.logo a{
+   background: linear-gradient(0deg, #B67B03 0%, #DAAF08 45%, #FEE9A0 70%, #DAAF08 85%, #B67B03 90% 100%);
+   -webkit-background-clip:text; /* メニュー項目の背景色(金色) */
+   line-height: 30px;         /* メニュー項目のリンクの高さ(40px) */
+   text-align: center;        /* メインメニューの文字列の配置(中央寄せ) */
+   text-decoration: none;     /* メニュー項目の装飾(下線を消す) */
+   font-weight: bold;         /* 太字にする */
+   font-size:1.5em;
+   color: transparent;
+   display: block; /* ★4:項目内全域をリンク可能にする */
+ 
+ }
+ 
+ /* -------------------- */
+/* ▼メニューバーの装飾 */
+/* -------------------- */
+ul.menu {
+   margin: 0px;               /* メニューバー外側の余白(ゼロ) */
+   padding: 0px 0px 0px 15px; /* メニューバー内側の余白(左に15px) */
+   background-color:#fff; /* バーの背景色(濃い赤色) */
+   position: fixed; /* 要素の位置を固定する */
+   top: 0; /* 基準の置を画面の一番上に指定する */
+   left: 50%; /* 基準の位置を画面の一番左に指定する */
+   margin: 10px ; /* 要素の余白を０にする */
+   padding: 10px; /* 要素内側の余白を指定する */
+   height:30px; /* 高さを指定する */
+   width: 45%; /* 幅を指定する */
+   color:#000; /* フォントの色を指定する */
+   box-shadow: 5px 5px 10px;/*要素に影を追加 */
+}
+
+/* -------------------------- */
+/* ▼メインメニュー項目の装飾 */
+/* -------------------------- */
+ul.menu li {
+   width: 125px;           /* メニュー項目の横幅(125px) */
+   display: inline-block;  /* ★1:横並びに配置する */
+   list-style-type: none;  /* ★2:リストの先頭記号を消す */
+   position: relative;     /* ★3:サブメニュー表示の基準位置にする */
+}
+ul.menu a {
+   background-color: #fff; /* メニュー項目の背景色(濃い赤色) */
+   color: #000080;            /* メニュー項目の文字色(白色) */
+   line-height: 30px;         /* メニュー項目のリンクの高さ(40px) */
+   text-align: center;        /* メインメニューの文字列の配置(中央寄せ) */
+   text-decoration: none;     /* メニュー項目の装飾(下線を消す) */
+   font-weight: bold;         /* 太字にする */
+   display: block;            /* ★4:項目内全域をリンク可能にする */
+}
+ul.menu a:hover {
+   background-color: #ffdddd; /* メニュー項目にマウスが載ったときの背景色(淡いピンク) */
+   color: #dd0000;            /* メニュー項目にマウスが載ったときの文字色(濃い赤色) */
+}
+
+/* ▼サブメニューは、とりあえず非表示にしておく */
+ul.ddmenu ul {
+   display: none;         /* ★5:非表示にする */
+}
+
+/* -------------------- */
+/* ▼サブメニューの装飾 */
+/* -------------------- */
+ul.menu ul {
+   display: none;       /* ★1:標準では非表示にする */
+   margin: 0px;         /* ★2:サブメニュー外側の余白(ゼロ) */
+   padding: 0px;        /* ★3:サブメニュー内側の余白(ゼロ) */
+   position: absolute;  /* ★4:絶対配置にする */
+}
+
+/* ---------------------------------- */
+/* ▼サブメニューがある場合に開く処理 */   /* ※サブメニューが1階層しか存在しない場合の記述 */
+/* ---------------------------------- */
+ul.menu li:hover ul {
+   display: block;      /* ★5:マウスポインタが載っている項目の内部にあるリストを表示する */
+}
+/* ------------------------ */
+/* ▼サブメニュー項目の装飾 */
+/* ------------------------ */
+ul.menu ul li {   /* ※A */
+   width: 125px;               /* サブメニュー1項目の横幅(135px) */
+   border-top: 1px solid pink; /* 項目上側の枠線(ピンク色で1pxの実線) */
+}
+ul.menu ul li a {   /* ※B */
+   line-height: 35px;   /* サブメニュー1項目の高さ(35px) */
+   text-align:  center;    /* 文字列の配置(左寄せ) */
+   padding-left: 5px;   /* 文字列前方の余白(5px) */
+   font-weight: bold; /* 太字にはしない */
+}
+ul.menu ul li a:hover {   /* ※C */
+   background-color: #ffff80; /* サブメニュー項目にマウスが載ったときの背景色(淡い黄色) */
+   color: #005500;            /* サブメニュー項目にマウスが載ったときの文字色(濃い緑色) */
+}
+
+body{
+	
+	width:100%; 
+	height:100%;
+	
+	
+}
+
+ main{
+	margin-right: auto;
+	margin-left : auto;
+ 	background-color: #fff;
+ 	overflow:hidden;
+	overflow-y:scroll;
+	padding:10% 25%;
+ 	
+ }
+ 
+ video {
+  max-width: 100%;/* はみ出ないように */
+}
+ 
+ .maintop {
+ 
+  display: flex;
+  align-items: center; /* 垂直中心 */
+  justify-content: center; /* 水平中心 */
+  
+ }
+ 
+ .maintop h1{
+ 
+ 	color: #0033ff;
+ 	font-size:50px;
+ 	text-align: center;
+ 	text-shadow:5px 5px 10px #000;
+ 	justify-content: center;
+ 
+ }
+ 
+.maintop:before, .maintop:after {
+  border-top: 2px solid;
+  content: "";
+  width: 3em; /* 線の長さ */
+}
+ .maintop:after {
+ 
+ margin-left: 1em;/* 文字の左隣 */
+ color: #0033ff
+ 
+ }
+ .maintop:before {
+  margin-right: 1em; /* 文字の右隣 */
+  color: #0033ff
+}
+
+.mainbox{
+	width:450px; 
+	height:230px;
+	margin:5px; 
+	padding:10px; 
+	background-color: #fff;
+	box-shadow: 5px 10px 10px;/*要素に影を追加 */
+	border-radius: 10px;/*角の丸み*/
+	border: solid 1px #fff;/*枠の線(白)*/
+	
+}
+
+.mainbox h1{
+	
+	font-family:'ＭＳ Ｐ明朝', serif;
+	text-align:center; /*文字中央に配置*/
+	font-size:30px;		/* 文字サイズ(30px)*/
+	
+}
+.mainboximg{
+	background-image: url(/images/akp41-s9tgc.svg);
+	background-position: 250px 70px;
+	background-size: 70% auto;                 /* 画像のサイズを指定    */
+	background-repeat:no-repeat;
+    width:120%;                              /* 横幅のサイズを指定    */
+    height:400px;                            /* 縦幅のサイズを指定    */
+	
+}
+.maintoplive{
+	
+  display: flex;
+  align-items: center; /* 垂直中心 */
+  justify-content: center; /* 水平中心 */
+  position: relative;
+  top: 50px;
+  
+
+}
+
+ .maintoplive h1{
+ 
+ 	color: #0033ff;
+ 	font-size:50px;
+ 	text-align: center;
+ 	text-shadow:5px 5px 10px #000;
+ 	justify-content: center;
+ 
+ }
+ 
+ .maintoplive:before, .maintoplive:after {
+  border-top: 2px solid;
+  content: "";
+  width: 3em; /* 線の長さ */
+}
+ .maintoplive:after {
+ 
+ margin-left: 1em;/* 文字の左隣 */
+ color: #0033ff
+ 
+ }
+ .maintoplive:before {
+  margin-right: 1em; /* 文字の右隣 */
+  color: #0033ff
+}
+
+.yokohamabox {
+	width:95%; 
+	height:700px;
+	margin:5px; 
+	padding:10px; 
+	background-color: #fff;
+	box-shadow: 5px 10px 10px;/*要素に影を追加 */
+	border-radius: 10px;/*角の丸み*/
+	border: solid 1px #fff;/*枠の線(白)*/
+	
+}
+.yokohamabox h1{
+	font-family:'ＭＳ Ｐ明朝', serif;
+	text-align:center; /*文字中央に配置*/
+	font-size:50px;		/* 文字サイズ(30px)*/
+	font-weight:bold;
+  	background-image: linear-gradient(135deg, #b8751e 0%, #ffce08 70%, #fefeb2 47%, #fafad6 50%,
+  	 #fefeb2 53%, #e1ce08 63%, #b8751e 100%);
+	-webkit-background-clip: text;
+ 	color: transparent;
+ 	
+	
+}
+ 
+ .yokohama {
+ 	background-image: url(/images/yokohama.jpg);
+	background-position: 30px 20px ;
+	background-size: 70% auto;                 /* 画像のサイズを指定    */
+	background-repeat:no-repeat;
+	width:130%;                              /* 横幅のサイズを指定    */
+    height:400px;                            /* 縦幅のサイズを指定    */
+ }
+ 
+ .hokkaidobox{
+ 
+ 	width:95%; 
+	height:700px;
+	margin:50px 0px 0px 5px; 
+	padding:10px; 
+	background-color: #fff;
+	box-shadow: 5px 10px 10px;/*要素に影を追加 */
+	border-radius: 10px;/*角の丸み*/
+	border: solid 1px #fff;/*枠の線(白)*/
+
+ 
+ }
+ 
+ .hokkaidobox h1{
+ 
+ 	font-family:'ＭＳ Ｐ明朝', serif;
+	text-align:center; /*文字中央に配置*/
+	font-size:50px;		/* 文字サイズ(30px)*/
+	font-weight:bold;
+  	background-image: linear-gradient(0deg, #757575 0.1em, #9E9E9E 0.2em, #E8E8E8 0.3em, #9E9E9E 0.4em, #757575 0.5em);
+	-webkit-background-clip: text;
+ 	color: transparent;
+ 
+ 
+ }
+ 
+ .hokkaido{
+  	background-image: url(/images/hokkaidou.jpg);
+	background-position: 30px 20px ;
+	background-size: 70% auto;                 /* 画像のサイズを指定    */
+	background-repeat:no-repeat;
+	width:130%;                              /* 横幅のサイズを指定    */
+    height:400px;                            /* 縦幅のサイズを指定    */
+ } 
+ 
+ .tokyobox{
+ 
+  	width:95%; 
+	height:700px;
+	margin:50px 0px 0px 5px; 
+	padding:10px; 
+	background-color: #fff;
+	box-shadow: 5px 10px 10px;/*要素に影を追加 */
+	border-radius: 10px;/*角の丸み*/
+	border: solid 1px #fff;/*枠の線(白)*/
+ 
+ }
+ 
+ .tokyobox h1{
+ 
+  	font-family:'ＭＳ Ｐ明朝', serif;
+	text-align:center; /*文字中央に配置*/
+	font-size:50px;		/* 文字サイズ(30px)*/
+	font-weight:bold;
+  	background-image: linear-gradient(0deg, #FF4F02 0.1em, #FF4F02 0.2em, #fff 0.3em, #BB0000 0.4em, #FF4500 0.5em);
+	-webkit-background-clip: text;
+ 	color: transparent;
+ 
+ 
+ }
+ 
+ .tokyo {
+ 
+   	background-image: url(/images/minatoku.jpg);
+	background-position: 30px 20px ;
+	background-size: 70% auto;                 /* 画像のサイズを指定    */
+	background-repeat:no-repeat;
+	width:130%;                              /* 横幅のサイズを指定    */
+    height:400px;                            /* 縦幅のサイズを指定    */
+ 
+ 
+ }
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
