@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>新規条件登録</title>
+    <link th:href="@{/css/add.css}" rel="stylesheet" type="text/css" ></link>
+    <meta charset="utf-8" />
+  </head>
+  <body>
+  <table>
+    <tr th:if="${validationError}" th:each="error : ${validationError}">
+      <td style="color:red;" th:text="${error}"></td>
+    </tr>
+  </table>
+    <h1>新規条件登録</h1>
+    <form th:action="@{/user/conditioncreate}" th:object="${Condition_Request}" th:method="post">
+      <a href="/user/list">キャンセル</a>
+    <table>
+      <tr>
+        <th class="cell_title">第一条件 都道府県</th>
+        <th class="cell_required">※</th>
+        <td><input type="text" th:field="*{Forst_Choice_Pretecture}"></td>
+      </tr>
+      <tr>
+        <th class="cell_title">第一条件 市町村</th>
+        <th class="cell_required">※</th>
+        <td><input type="text" th:field="*{Forst_Choice_Ctiy}"></td>
+      </tr>
+      <tr>
+        <th class="cell_title">第二条件 都道府県</th>
+        <th class="cell_required"></th>
+        <td><input type="text" th:field="*{Second_Choice_Pretecture}"></td>
+      </tr>
+      <tr>
+        <th class="cell_title">第二条件 市町村</th>
+        <th class="cell_required"></th>
+        <td><input type="text" th:field="*{Second_Choice_Ctiy}"></td>
+      </tr>
+       <tr>
+        <th class="cell_title">第三条件 都道府県</th>
+        <th class="cell_required"></th>
+        <td><input type="text" th:field="*{Third_Choice_Pretecture}"></td>
+      </tr>
+       <tr>
+        <th class="cell_title">第三条件 市町村</th>
+        <th class="cell_required"></th>
+        <td><input type="text" th:field="*{Third_Choice_Ctiy}"></td>
+      </tr>
+       <tr>
+        <th class="cell_title">希望最小価格</th>
+        <th class="cell_required">※</th>
+        <td><input type="text" th:field="*{Asking_price_min}"></td>
+      </tr>
+       <tr>
+        <th class="cell_title">希望最大価格</th>
+        <th class="cell_required">※</th>
+        <td><input type="text" th:field="*{Asking_price_max}"></td>
+      </tr>
+       <tr>
+        <th class="cell_title">間取り数</th>
+        <th class="cell_required">※</th>
+        <td><input type="text" th:field="*{Floop_Plon_num}"></td>
+      </tr>
+       <tr>
+        <th class="cell_title">間取り</th>
+        <th class="cell_required">※</th>
+        <td><input type="text" th:field="*{Floop_Plon}"></td>
+      </tr>
+       <tr>
+        <th class="cell_title">諸条件1</th>
+        <th class="cell_required"></th>
+        <td><input type="text" th:field="*{Terms_and_Conditions1}"></td>
+      </tr>
+       <tr>
+        <th class="cell_title">諸条件2</th>
+        <th class="cell_required"></th>
+        <td><input type="text" th:field="*{Terms_and_Conditions2}"></td>
+      </tr>
+       <tr>
+        <th class="cell_title">諸条件3</th>
+        <th class="cell_required"></th>
+        <td><input type="text" th:field="*{Terms_and_Conditions3}"></td>
+      </tr>
+       <tr>
+        <th class="cell_title">諸条件4</th>
+        <th class="cell_required"></th>
+        <td><input type="text" th:field="*{Terms_and_Conditions4}"></td>
+      </tr>
+       <tr>
+        <th class="cell_title">諸条件5</th>
+        <th class="cell_required"></th>
+        <td><input type="text" th:field="*{Terms_and_Conditions5}"></td>
+      </tr> 
+       <tr>
+        <th class="cell_title">id</th>
+        <th class="cell_required"></th>
+        <td><input type="text" th:field="*{userid}"></td>
+      </tr>
+    </table>
+    <div class="btn_area_center"><input type="submit" value="登録" class="btn"></div>
+  </form>
+  </body>
+</html>
