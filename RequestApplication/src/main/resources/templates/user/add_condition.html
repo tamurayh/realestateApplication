@@ -18,7 +18,7 @@
       <tr>
         <th class="cell_title">第一条件 都道府県</th>
         <th class="cell_required">※</th>
-        <td><select th:field="*{Forst_Choice_Pretecture}">
+        <td><select name = Forst_Choice_Pretecture id = Forst_Choice_Pretecture th:field="*{Forst_Choice_Pretecture}">
         <option value="">選択してください</option>
         <option value="北海道">北海道</option>
         <option value="青森県">青森県</option>
@@ -74,7 +74,7 @@
       <tr>
         <th class="cell_title">第一条件 市町村</th>
         <th class="cell_required">※</th>
-        <td><input type="text" th:field="*{Forst_Choice_Ctiy}"></td>
+        <td><input name = Forst_Choice_Ctiy id = Forst_Choice_Ctiy type="text" th:field="*{Forst_Choice_Ctiy}"></td>
       </tr>
       <tr>
         <th class="cell_title">第二条件 都道府県</th>
