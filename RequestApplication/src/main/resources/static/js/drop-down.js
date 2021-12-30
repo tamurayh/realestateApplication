@@ -34,4 +34,7 @@ $(function() {
       $('#Forst_Choice_Ctiy').html('<option value="">市区町村で絞り込む</option>').fadeOut();
     }
   });
+	$('#Forst_Choice_Ctiy_item').on('change', function() {
+		$('#Forst_Choice_Ctiy').fadeOut();
+		  });
 });
