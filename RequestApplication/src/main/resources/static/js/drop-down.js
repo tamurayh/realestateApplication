@@ -8,6 +8,7 @@ $(function() {
     prefLength = pref.length;
 	SecondprefLength = pref.length;
 	$('#Forst_Choice_Ctiy_item').hide();/* 「#Forst_Choice_Ctiy_item」を隠す */
+	$('#Second_Choice_Pretecture_item').hide();
  	$('#Forst_Choice_Ctiy').hide();
   for (var i = 0; i < prefLength; i++) {
     prefdata = pref[i]
@@ -42,6 +43,9 @@ $(function() {
     }
   });
 $('#Forst_Choice_Ctiy').on('change', function() {
+	var index = $(this).prop('selectedIndex');
+    var selected = $(this).val()
+	if (selected !== '') {
 	for (var i = 0; i < SecondprefLength; i++) {
     Secondprefdata = pref[i]
     Secondvalue = Secondprefdata[0];
@@ -51,6 +55,11 @@ $('#Forst_Choice_Ctiy').on('change', function() {
       SecondprefOption += '<option value="' + Secondvalue + '">' + Secondvalue + '</option>\n';
     }
     $('#Second_Choice_Pretecture').html(SecondprefOption);
+	$('#Second_Choice_Pretecture_item').fadeIn();
   }
+} else {
+	$('#Second_Choice_Pretecture_item').fadeOut()
+	
+}
 });
 });
