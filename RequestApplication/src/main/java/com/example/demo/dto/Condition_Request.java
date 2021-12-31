@@ -14,12 +14,10 @@ import lombok.Data;
 	  /**
 	   * 第一希望 県
 	   */
-	  @Size(max = 5, message = "第一希望の都道府県を選択してください")
 	  private String Forst_Choice_Pretecture;
 	  /**
 	   * 第一希望 市
 	   */
-	  @Size(max = 5, message = "第一希望の市町村を選択してください")
 	  private String Forst_Choice_Ctiy;
 	  /**
 	   * 第二希望 県

@@ -176,15 +176,16 @@ public class UserController {
    * @return ユーザー情報一覧画面
    */
   @RequestMapping(value = "/user/conditioncreate", method = RequestMethod.POST)
-  
   public String conditioncreate(@Validated @ModelAttribute  Condition_Request condition_Request,BindingResult result,Model model, @CookieValue(value="id", required=false ) String str) {
     if (result.hasErrors()) {
       List<String> errorList = new ArrayList<String>();
       for (ObjectError error : result.getAllErrors()) {
         errorList.add(error.getDefaultMessage());
       }
+      String URL = ("user/add_condition");
       model.addAttribute("validationError", errorList);
-      return "user/add_condition";
+      
+      return URL;
     }
     long id = Long.parseLong(str);
     
