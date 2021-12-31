@@ -1,10 +1,14 @@
 $(function() {
+  var SecondprefOption = '';
   var prefOption = '',
     value,
+	Secondvalue,
     prefdata,
+	Secondprefdata,
     prefLength = pref.length;
+	SecondprefLength = pref.length;
 	$('#Forst_Choice_Ctiy_item').hide();/* 「#Forst_Choice_Ctiy_item」を隠す */
-  $('#Forst_Choice_Ctiy').hide();
+ 	$('#Forst_Choice_Ctiy').hide();
   for (var i = 0; i < prefLength; i++) {
     prefdata = pref[i]
     value = prefdata[0];
@@ -19,7 +23,6 @@ $(function() {
   $('#Forst_Choice_Pretecture').on('change', function() {
     var index = $(this).prop('selectedIndex');
     var selected = $(this).val();
-	$('#Forst_Choice_Ctiy_item').fadeIn();
     if (selected !== '') {
       var cityOption = '';
       $.each(pref[index][1], function() {
@@ -32,8 +35,22 @@ $(function() {
         }
       });
       $('#Forst_Choice_Ctiy').html(cityOption).fadeIn();
+	　$('#Forst_Choice_Ctiy_item').fadeIn();
     } else {
       $('#Forst_Choice_Ctiy').html('<option value="">市区町村で絞り込む</option>').fadeOut();
+	　$('#Forst_Choice_Ctiy_item').fadeOut()
     }
   });
+$('#Forst_Choice_Ctiy').on('change', function() {
+	for (var i = 0; i < SecondprefLength; i++) {
+    Secondprefdata = pref[i]
+    Secondvalue = Secondprefdata[0];
+    if (Secondvalue == '都道府県を選択してください') {
+      SecondprefOption += '<option value="" selected>' + Secondvalue + '</option>\n';
+    } else {
+      SecondprefOption += '<option value="' + Secondvalue + '">' + Secondvalue + '</option>\n';
+    }
+    $('#Second_Choice_Pretecture').html(SecondprefOption);
+  }
+});
 });
