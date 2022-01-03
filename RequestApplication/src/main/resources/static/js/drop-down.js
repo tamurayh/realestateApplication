@@ -5,6 +5,10 @@ $(function() {
 	Secondvalue,
     prefdata,
 	Secondprefdata,
+	priceOption = '',
+	pricedata,
+	pricevalue,
+	priceLength = price.length;
     prefLength = pref.length;
 	SecondprefLength = pref.length;
 	$('#Forst_Choice_Ctiy_item').hide();/* 「#Forst_Choice_Ctiy_item」を隠す */
@@ -23,6 +27,16 @@ $(function() {
     }
     $('#Forst_Choice_Pretecture').html(prefOption);
   }
+	for (var p = 0; p < priceLength; p++) {
+		pricedata = price[p]
+		pricevalue = pricedata[0];
+	if (pricevalue == '希望最小価格を選択してください') {
+		 priceOption += '<option value="" selected>' + pricevalue + '</option>\n';
+	} else {
+		 priceOption += '<option value="' + pricevalue + '">' + pricevalue + '</option>\n';
+	 }
+	 $('#Asking_price_min').html(priceOption)
+	}
 
   $('#Forst_Choice_Pretecture').on('change', function() {
     var index = $(this).prop('selectedIndex');

@@ -55,10 +55,11 @@
         <td><select name = Third_Choice_Ctiy id = Third_Choice_Ctiy th:field="*{Third_Choice_Ctiy}">
         </select></td>
       </tr>
-       <tr>
+       <tr id = Asking_price_min_item>
         <th class="cell_title">希望最小価格</th>
         <th class="cell_required">※</th>
-        <td><input type="text" th:field="*{Asking_price_min}"></td>
+        <td><select id = Asking_price_min th:field="*{Asking_price_min}">
+        </select></td>
       </tr>
        <tr>
         <th class="cell_title">希望最大価格</th>
