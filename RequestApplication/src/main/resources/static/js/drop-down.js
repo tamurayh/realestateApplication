@@ -17,6 +17,7 @@ $(function() {
 	$('#Second_Choice_Ctiy_item').hide();
 	$('#Third_Choice_Pretecture_item').hide();
 	$('#Third_Choice_Ctiy_item').hide();
+	$('#Asking_price_max_item').hide();
   for (var i = 0; i < prefLength; i++) {
     prefdata = pref[i]
     value = prefdata[0];
@@ -36,7 +37,28 @@ $(function() {
 		 priceOption += '<option value="' + pricevalue + '">' + pricevalue + '</option>\n';
 	 }
 	 $('#Asking_price_min').html(priceOption)
-	}
+  }
+	 $('#Asking_price_min').on('change', function() {
+    var priceindex = $(this).prop('selectedIndex');
+    var priceselected = $(this).val();
+    if (priceselected !== '') {
+      var priceOption = '';
+      $.each(price[priceindex][1], function() {
+        if (this == '希望最大価格を選択してください') {
+          priceOption += '<option value="">' + this + '</option>\n';
+          console.log(this);
+        } else {
+          priceOption += '<option value="' + this + '">' + this + '</option>\n';
+          console.log(this);
+        }
+      });
+      $('#Asking_price_max').html(priceOption).fadeIn();
+	　$('#Asking_price_max_item').fadeIn();
+    } else {
+      $('#Asking_price_max').html('<option value="">希望最大価格を選択してください</option>').fadeOut();
+	　$('#Asking_price_max_item').fadeOut();
+    }
+  });
 
   $('#Forst_Choice_Pretecture').on('change', function() {
     var index = $(this).prop('selectedIndex');
@@ -56,7 +78,7 @@ $(function() {
 	　$('#Forst_Choice_Ctiy_item').fadeIn();
     } else {
       $('#Forst_Choice_Ctiy').html('<option value="">市区町村で絞り込む</option>').fadeOut();
-	　$('#Forst_Choice_Ctiy_item').fadeOut()
+	　$('#Forst_Choice_Ctiy_item').fadeOut();
     }
   });
 $('#Forst_Choice_Ctiy').on('change', function() {
@@ -74,7 +96,7 @@ $('#Forst_Choice_Ctiy').on('change', function() {
 	$('#Second_Choice_Pretecture_item').fadeIn();
   }
 } else {
-	$('#Second_Choice_Pretecture_item').fadeOut()
+	$('#Second_Choice_Pretecture_item').fadeOut();
 	
 }
 });
@@ -96,7 +118,7 @@ $('#Forst_Choice_Ctiy').on('change', function() {
 	　$('#Second_Choice_Ctiy_item').fadeIn();
     } else {
       $('#Second_Choice_Ctiy').html('<option value="">市区町村で絞り込む</option>').fadeOut();
-	　$('#Second_Choice_Ctiy_item').fadeOut()
+	　$('#Second_Choice_Ctiy_item').fadeOut();
     }
   });
 $('#Second_Choice_Ctiy').on('change', function() {
@@ -114,7 +136,7 @@ $('#Second_Choice_Ctiy').on('change', function() {
 	$('#Third_Choice_Pretecture_item').fadeIn();
   }
 } else {
-	$('#Third_Choice_Pretecture_item').fadeOut()
+	$('#Third_Choice_Pretecture_item').fadeOut();
 	
 }
 });
@@ -136,7 +158,7 @@ $('#Second_Choice_Ctiy').on('change', function() {
 	　$('#Third_Choice_Ctiy_item').fadeIn();
     } else {
       $('#Third_Choice_Ctiy').html('<option value="">市区町村で絞り込む</option>').fadeOut();
-	　$('#Third_Choice_Ctiy_item').fadeOut()
+	　$('#Third_Choice_Ctiy_item').fadeOut();
     }
   });
 });

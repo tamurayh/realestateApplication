@@ -59,12 +59,13 @@
         <th class="cell_title">希望最小価格</th>
         <th class="cell_required">※</th>
         <td><select id = Asking_price_min th:field="*{Asking_price_min}">
-        </select></td>
+        </select>万円</td>
       </tr>
-       <tr>
+       <tr id = Asking_price_max_item>
         <th class="cell_title">希望最大価格</th>
         <th class="cell_required">※</th>
-        <td><input type="text" th:field="*{Asking_price_max}"></td>
+        <td><select id = Asking_price_max th:field="*{Asking_price_max}">
+        </select>万円</td>
       </tr>
        <tr>
         <th class="cell_title">間取り数</th>
