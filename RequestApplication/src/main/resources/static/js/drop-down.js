@@ -18,6 +18,7 @@ $(function() {
 	$('#Third_Choice_Pretecture_item').hide();
 	$('#Third_Choice_Ctiy_item').hide();
 	$('#Asking_price_max_item').hide();
+	
   for (var i = 0; i < prefLength; i++) {
     prefdata = pref[i]
     value = prefdata[0];
