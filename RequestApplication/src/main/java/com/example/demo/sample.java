@@ -19,6 +19,7 @@ public class sample {
         for (Element element : elements) {
             System.out.println(element.text());
         }
+        
     }
 
 }
