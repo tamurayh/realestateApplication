@@ -36,6 +36,7 @@ public class UserController {
   /**
    * ユーザー情報 Service
    */
+	
   @Autowired
   UserService userService;
   Condition_Request condition_Request;
