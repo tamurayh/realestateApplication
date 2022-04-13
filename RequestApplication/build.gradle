@@ -30,3 +30,7 @@ test {
 	useJUnitPlatform()
 }
 
+bootJar {
+    launchScript()
+}
+
