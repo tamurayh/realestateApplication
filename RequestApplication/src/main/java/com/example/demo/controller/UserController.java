@@ -192,6 +192,6 @@ public class UserController {
     
     // ユーザー情報の登録
     userService.conditioncreate(condition_Request, id);
-    return "/top";
+    return "redirect:/user/list";
   }
 }
