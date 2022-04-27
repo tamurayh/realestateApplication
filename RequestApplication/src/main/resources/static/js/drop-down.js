@@ -8,8 +8,8 @@ $(function() {
 	priceOption = '',
 	pricedata,
 	pricevalue,
-	priceLength = price.length;
-    prefLength = pref.length;
+	priceLength = price.length; /* priceの配列要素数を取得*/
+    prefLength = pref.length; /*prefの配列要素数を取得*/
 	SecondprefLength = pref.length;
 	$('#Forst_Choice_Ctiy_item').hide();/* 「#Forst_Choice_Ctiy_item」を隠す */
 	$('#Second_Choice_Pretecture_item').hide();
@@ -19,19 +19,22 @@ $(function() {
 	$('#Third_Choice_Ctiy_item').hide();
 	$('#Asking_price_max_item').hide();
 	
+	/* iがprefLengthの配列要素数が少ない場合はiに1を追加しながら処理を繰り返す*/
   for (var i = 0; i < prefLength; i++) {
-    prefdata = pref[i]
-    value = prefdata[0];
+    prefdata = pref[i]/*prefdataにprefにiの数の要素を代入 */
+    value = prefdata[0];/*valueにprefdata[0]の要素を代入*/
     if (value == '都道府県を選択してください') {
+	/*optionでドロップダウン化してselecedで選択状態*/ 
       prefOption += '<option value="" selected>' + value + '</option>\n';
     } else {
       prefOption += '<option value="' + value + '">' + value + '</option>\n';
     }
     $('#Forst_Choice_Pretecture').html(prefOption);
   }
+  /**第一希望の市町村入力フォーム表示 */
 	for (var p = 0; p < priceLength; p++) {
-		pricedata = price[p]
-		pricevalue = pricedata[0];
+		pricedata = price[p]/*pricedataにpriceにpの数の要素を代入 */
+		pricevalue = pricedata[0];/*valueにprefdata[0]の要素を代入*/
 	if (pricevalue == '希望最小価格を選択してください') {
 		 priceOption += '<option value="" selected>' + pricevalue + '</option>\n';
 	} else {
