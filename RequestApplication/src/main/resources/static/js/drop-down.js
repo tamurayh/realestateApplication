@@ -31,22 +31,27 @@ $(function() {
     }
     $('#Forst_Choice_Pretecture').html(prefOption);
   }
-  /**第一希望の市町村入力フォーム表示 */
+  /**希望最小価格の入力フォーム */
 	for (var p = 0; p < priceLength; p++) {
 		pricedata = price[p]/*pricedataにpriceにpの数の要素を代入 */
 		pricevalue = pricedata[0];/*valueにprefdata[0]の要素を代入*/
 	if (pricevalue == '希望最小価格を選択してください') {
+		/*optionでドロップダウン化してselecedで選択状態*/ 
 		 priceOption += '<option value="" selected>' + pricevalue + '</option>\n';
 	} else {
 		 priceOption += '<option value="' + pricevalue + '">' + pricevalue + '</option>\n';
 	 }
 	 $('#Asking_price_min').html(priceOption)
   }
+  /**希望最小価格の入力フォーム */
+  /**希望最小価格が入力されたら表示させるため'change', function()を使用 */
 	 $('#Asking_price_min').on('change', function() {
+	/**thisでオブジェクトを指定して、propで選択地を取得してselectedIndexに格納 */
     var priceindex = $(this).prop('selectedIndex');
-    var priceselected = $(this).val();
-    if (priceselected !== '') {
+    var priceselected = $(this).val();/**thisでオブジェクトを指定してHTMLの値をvalで取得*/
+    if (priceselected !== '') {/**!==は厳密不等価演算子 */
       var priceOption = '';
+		/**eachでHTML要素の繰り返し処理 */
       $.each(price[priceindex][1], function() {
         if (this == '希望最大価格を選択してください') {
           priceOption += '<option value="">' + this + '</option>\n';
@@ -56,11 +61,11 @@ $(function() {
           console.log(this);
         }
       });
-      $('#Asking_price_max').html(priceOption).fadeIn();
+      $('#Asking_price_max').html(priceOption).fadeIn();/**最大価格をfadeInで表示*/
 	　$('#Asking_price_max_item').fadeIn();
     } else {
       $('#Asking_price_max').html('<option value="">希望最大価格を選択してください</option>').fadeOut();
-	　$('#Asking_price_max_item').fadeOut();
+	　$('#Asking_price_max_item').fadeOut();/**最大価格をfadeOutで非表示*/
     }
   });
 
